@@ -369,6 +369,7 @@ export function handleNewItem(event: NewItem): void {
     let description = colObj.get('description');
     let _type = colObj.get('type');
     let isIdentifier = colObj.get('isIdentifier');
+    let allowedFileTypes = colObj.get('allowedFileTypes');
     let value = values.get(checkedLabel);
     let itemPropId = graphItemID + '@' + checkedLabel;
     let itemProp = new ItemProp(itemPropId);
@@ -379,6 +380,9 @@ export function handleNewItem(event: NewItem): void {
     itemProp.description = JSONValueToMaybeString(description);
     itemProp.isIdentifier = JSONValueToBool(isIdentifier);
     itemProp.item = item.id;
+    
+    if(allowedFileTypes)
+      itemProp.allowedFileTypes = JSONValueToMaybeString(allowedFileTypes);
 
     if (itemProp.isIdentifier) {
       if (identifier == 0) item.key0 = itemProp.value
