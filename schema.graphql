@@ -154,6 +154,7 @@ type ItemProp @entity {
   label: String!
   description: String!
   isIdentifier: Boolean!
+  allowedFileTypes: String!
   value: String
   item: LItem!
 }
